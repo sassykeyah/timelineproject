@@ -36,10 +36,10 @@ export default {
       <!-- create a variable called result, 
       loop through the API results and add a list item for each result.
       Use result to access properties like 'title' and 'name' -->
-      <li v-for="result in theData.1" :key="result.title">
+     <!-- <li v-for="result in theData.1" :key="result.title">
         {{ result.title }}
         {{ result.name }}
-      </li>
+      </li> -->
     </ul>
   </div>
 </template>
