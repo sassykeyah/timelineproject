@@ -28,10 +28,25 @@ export default {
     currentPage: 1,
     total: 0,
     imgURL: 'https://media.nfsacollection.net/',
-    query: 'https://api.collection.nfsa.gov.au/search?limit=25&query=',
-    searchString: 'lobby'
+    query: 'https://api.collection.nfsa.gov.au/search?limit=25&hasMedia=yes&year=1970-2000&query=',
+    searchString: 'women',
+    selectedCategories: []
   }
-
+  },
+  computed: {
+    filteredItems() {
+      if (this.selectedCategories.length === 0) {
+        return this.resultSet // Return all items if no category is selected
+      }
+      return this.resultSet.filter(
+        (item) =>
+          (item['forms'] && this.selectedCategories.includes(item['forms'][0])) ||
+          (item['countries'] && this.selectedCategories.includes(item['countries'][0])) ||
+          (item['parentTitle'] &&
+            item['parentTitle']['genres'] &&
+            this.selectedCategories.includes(item['parentTitle']['genres'][0]))
+      )
+    }
   },
   methods: {
     fetchData() {
@@ -72,10 +87,14 @@ export default {
               console.log('no results')
             }
           })
+          
         })
         .catch((err) => {
           console.error(err)
         })
+    },
+    clearResults() {
+      this.$data.resultSet = []
     }
   }
 }
@@ -84,23 +103,45 @@ export default {
 
 <template>
   <div class="search">
-    <h1 class="white">{{ msg }}</h1>
+    <h1 class="green">{{ msg }}</h1>
 
     <input v-model="searchString" placeholder="query" />
     <button @click="fetchData">fetch data</button>
+    <button @click="clearResults">clear results</button>
 
     <p>Total: {{ total }}</p>
 
+    <p>Filter Items with Checkboxes</p>
+    <div>
+      <label>
+        <input type="checkbox" value="Lobby card" v-model="selectedCategories" /> Lobby card
+      </label>
+      <label>
+        <input type="checkbox" value="Australia" v-model="selectedCategories" /> From Australia
+      </label>
+      <label>
+        <input type="checkbox" value="Bushranger" v-model="selectedCategories" /> Genre: Bushranger
+      </label>
+    </div>
+
     <ul role="list" class="list-v">
-      <li v-for="(result, index) in resultSet" :key="result[index]">
-        <p>{{ result['title'] }}</p>
-        <p>{{ result['name'] }}</p>
-        <img
-          v-if="result['preview'] && result['preview'][0]"
-          v-bind:src="imgURL + result['preview'][0]['filePath']"
-          v-bind:alt="result['name']"
-          v-bind:title="result['name']"
-        />
+      <!-- create a variable called result, 
+      loop through the API results and add a list item for each result.
+      Use result to access properties like 'title' and 'name' -->
+      <li v-for="(result, index) in filteredItems" :key="result[index]">
+        <!-- <li v-for="(result, index) in resultSet" :key="result[index]"> -->
+        <!-- <p class="title">{{ result['title'] }}</p> -->
+        <p>{{ result['name'] }} {{ result['productionDates'][0]['fromYear'] }}</p>
+        <!-- check if there's any items in the preview array.  If so, put the biggest image in the view -->
+        <!-- v-bind is used to update the src attribute when the data comes in -->
+        <Transition>
+          <img
+            v-if="result['preview'] && result['preview'][0]"
+            v-bind:src="imgURL + result['preview'][0]['filePath']"
+            v-bind:alt="result['name']"
+            v-bind:title="result['name']"
+          />
+        </Transition>
       </li>
     </ul>
   </div>
