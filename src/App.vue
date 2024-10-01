@@ -7,7 +7,7 @@ import navheader from './components/navheader.vue'
 <template>
   <header>
     <nav>
-      <navheader  />
+      <navheader />
       <n1>NFSA</n1>
         <RouterLink to="/">Home</RouterLink>
         

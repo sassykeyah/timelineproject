@@ -161,6 +161,12 @@ export default {
 </template>
 
 <style scoped>
+img {
+  width: 400px;
+  height: 600px;
+  object-fit: contain;
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
@@ -185,7 +191,7 @@ export default {
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
-  width: 50%;
+  width: 100%;
 }
 
 /* The circles on the timeline */
@@ -194,7 +200,7 @@ export default {
   position: absolute;
   width: 25px;
   height: 25px;
-  right: -17px;
+  right: -13px;
   background-color: white;
   border: 4px solid #FF9F55;
   top: 15px;
@@ -204,7 +210,7 @@ export default {
 
 /* Place the container to the left */
 .left {
-  left: 0;
+  left: -50%;
 }
 
 /* Place the container to the right */
@@ -242,13 +248,13 @@ export default {
 
 /* Fix the circle for containers on the right side */
 .right::after {
-  left: -16px;
+  left: -12px;
 }
 
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: white;
+  background-color: rgb(25, 120, 54);
   position: relative;
   border-radius: 6px;
 }
