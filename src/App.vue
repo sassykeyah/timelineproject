@@ -20,14 +20,14 @@ import navheader from './components/navheader.vue'
       
     </div>
   </header>
-
+<body></body>
   <RouterView />
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 100vh;
+ 
 }
 
 .logo {
@@ -62,9 +62,8 @@ nav a:first-of-type {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    text-align: center;
+   
   }
 
   .logo {
@@ -78,7 +77,7 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
+    
     margin-left: -1rem;
     font-size: 1rem;
 

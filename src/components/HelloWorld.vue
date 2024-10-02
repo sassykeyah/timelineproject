@@ -108,24 +108,7 @@ export default {
   <div class="search">
     <h1 class="green">{{ msg }}</h1>
 
-    <input v-model="searchString" placeholder="query" />
-    <button @click="fetchData">fetch data</button>
-    <button @click="clearResults">clear results</button>
-
-    <p>Total: {{ total }}</p>
-
-    <p>Filter Items with Checkboxes</p>
-    <div>
-      <label>
-        <input type="checkbox" value="Lobby card" v-model="selectedCategories" /> Lobby card
-      </label>
-      <label>
-        <input type="checkbox" value="Australia" v-model="selectedCategories" /> From Australia
-      </label>
-      <label>
-        <input type="checkbox" value="Bushranger" v-model="selectedCategories" /> Genre: Bushranger
-      </label>
-    </div>
+    
 
     <div class="timeline" v-for="(result, index) in filteredItems" :key="result[index]">
       <div v-if="index % 2 === 0" class="container left">
@@ -254,7 +237,7 @@ img {
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: rgb(25, 120, 54);
+  background-color: rgb(45, 123, 61);
   position: relative;
   border-radius: 6px;
 }
