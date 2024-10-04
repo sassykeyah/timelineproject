@@ -113,9 +113,11 @@ export default {
     <div class="timeline" v-for="(result, index) in filteredItems" :key="result[index]">
       <div v-if="index % 2 === 0" class="container left">
         <div class="content">
+          <RouterLink :to="{ name: 'about', params: { id: result['id'] }}">
           <h2>{{ result['productionDates'][0]['fromYear'] }}</h2>
           <p>{{ result['name'] }} </p>
           <Transition>
+            
             <img
               v-if="result['preview'] && result['preview'][0]"
               v-bind:src="imgURL + result['preview'][0]['filePath']"
@@ -123,10 +125,12 @@ export default {
               v-bind:title="result['name']"
             />
           </Transition>
+        </RouterLink>
         </div>
       </div>
       <div v-if="index % 2 === 1" class="container right">
         <div class="content">
+          <RouterLink :to="{ name: 'about', params: { id: result['id'] }}">
           <h2>{{ result['productionDates'][0]['fromYear'] }}</h2>
           <p>{{ result['name'] }}</p>
           <Transition>
@@ -137,6 +141,7 @@ export default {
               v-bind:title="result['name']"
             />
           </Transition>
+        </RouterLink>
         </div>
       </div>
     </div>
@@ -145,8 +150,8 @@ export default {
 
 <style scoped>
 img {
-  width: 400px;
-  height: 600px;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
 }
 

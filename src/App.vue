@@ -1,27 +1,18 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import navheader from './components/navheader.vue'
 </script>
 
 <template>
   <header>
     <nav>
-      <navheader />
+     
+      <h1>Women of Film and Sound History</h1>
       <n1>NFSA</n1>
-        <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/">Home</RouterLink>
         
       </nav>
-
-    <div class="wrapper">
-
-      <HelloWorld msg="Women of Film and Sound History" />
-
-      
-    </div>
   </header>
-<body></body>
-  <RouterView />
+<router-view />
 </template>
 
 <style scoped>
