@@ -1,21 +1,6 @@
 <script lang="ts">
-// Use a Pinia store to hold the API results through the whole app
-// Access the data by importing the store
-import { useSearchDataStore } from '@/stores/searchData'
-var store: any
 
-function updateStore(newData: any) {
-  // Define a variable to represent the store
-  store = useSearchDataStore()
-  // Then use store.theStoredData to get/set the collection
-  store.theStoredData = newData
-  return {
-    theStoredData: store.theStoredData
-  }
-}
-// var theCollection = store.theStoredData
 export default {
- name: 'HelloWorld',
  props: {
  msg: String
  },
@@ -84,7 +69,7 @@ export default {
                 this.currentPage = 1
                 console.log('Pages: ' + Math.ceil(this.$data.total / 25))
                 console.log('finished')
-                updateStore(this.$data.resultSet)
+                
               }
             } else {
               console.log('no results')
