@@ -5,14 +5,14 @@
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  background-color: #e7e2dc;
 }
 
 a,
 .white {
   text-decoration: none;
-  color: rgb(217, 221, 220);
+  color: #3e3d3d;
   transition: 0.4s;
-  padding: 3px;
 }
 
 @media (hover: hover) {
@@ -25,11 +25,9 @@ a,
   body {
     display: flex;
     place-items: center;
+    background-color: #e7e2dc;
   }
 
   #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
   }
 }

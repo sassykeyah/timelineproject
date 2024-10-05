@@ -106,10 +106,6 @@ export default {
 
 <template>
   <div class="search">
-    <h1 class="green">{{ msg }}</h1>
-
-    
-
     <div class="timeline" v-for="(result, index) in filteredItems" :key="result[index]">
       <div v-if="index % 2 === 0" class="container left">
         <div class="content">
@@ -155,6 +151,11 @@ img {
   object-fit: contain;
 }
 
+.search{
+  margin-top: 100px;
+  
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
   position: relative;
@@ -167,7 +168,7 @@ img {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: white;
+  background-color:#3E3D3D;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -179,7 +180,7 @@ img {
   padding: 10px 40px;
   position: relative;
   background-color: inherit;
-  width: 100%;
+  width: 500px;
 }
 
 /* The circles on the timeline */
@@ -189,8 +190,8 @@ img {
   width: 25px;
   height: 25px;
   right: -13px;
-  background-color: white;
-  border: 4px solid #FF9F55;
+  background-color: #3E3D3D;
+  border: 4px solid #C0C6B8;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
@@ -215,9 +216,9 @@ img {
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid white;
+  border: medium solid #3E3D3D;
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+  border-color: transparent transparent transparent #3E3D3D;
 }
 
 /* Add arrows to the right container (pointing left) */
@@ -229,9 +230,9 @@ img {
   width: 0;
   z-index: 1;
   left: 30px;
-  border: medium solid white;
+  border: medium solid #3E3D3D;
   border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
+  border-color: transparent #3E3D3D transparent transparent;
 }
 
 /* Fix the circle for containers on the right side */
@@ -242,9 +243,10 @@ img {
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: rgb(45, 123, 61);
+  background-color: #C0C6B8;
   position: relative;
   border-radius: 6px;
+  color:#3E3D3D;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
