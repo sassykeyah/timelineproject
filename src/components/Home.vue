@@ -33,6 +33,7 @@ export default {
       )
     }
   },
+  // render data without user input
   mounted() {
     this.fetchData();
   },
@@ -91,8 +92,11 @@ export default {
 
 <template>
   <div class="search">
+    <!-- In vue, loop through API data -->
     <div class="timeline" v-for="(result, index) in filteredItems" :key="result[index]">
+       <!-- Use modulo function to return left or right containers, depending on row index being odd or even-->
       <div v-if="index % 2 === 0" class="container left">
+         <!-- Return timeline card data-->
         <div class="content">
           <RouterLink :to="{ name: 'about', params: { id: result['id'] }}">
           <h2>{{ result['productionDates'][0]['fromYear'] }}</h2>
@@ -109,6 +113,7 @@ export default {
         </RouterLink>
         </div>
       </div>
+       <!-- See comments above-->
       <div v-if="index % 2 === 1" class="container right">
         <div class="content">
           <RouterLink :to="{ name: 'about', params: { id: result['id'] }}">
@@ -277,7 +282,7 @@ img {
     left: 5px;
   }
 }
-
+/* media query for phones/small form factors*/
 @media screen and (max-width: 600px) {
 
 

@@ -25,11 +25,12 @@ export default {
       error: null,  // To capture any error that occurs
     };
   },
-  // Vue lifecycle hook to fetch data when component is mounted
+  // Vue lifecycle hook to fetch data when component is created as mounted was too late.
   created() {
     this.fetchDetail();
   },
   computed: {
+    // Critical because I always needed to return an image and not all media nodes of data have images attached. 
     previewItems: function() {
       try {
         return this.detail['media'].filter(function(item) {
