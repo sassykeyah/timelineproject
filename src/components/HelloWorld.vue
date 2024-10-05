@@ -250,15 +250,22 @@ img {
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1024px) {
 /* Place the timelime to the left */
   .timeline::after {
-    left: 31px;
+    content: '';
+  position: absolute;
+  width: 6px;
+  background-color:#3E3D3D;
+  top: 0;
+  bottom: 0;
+  left: 28px;
+  margin-left: -3px;
   }
 
 /* Full-width containers */
   .container {
-    width: 100%;
+    width: 500px;
     padding-left: 70px;
     padding-right: 25px;
   }
@@ -266,19 +273,32 @@ img {
 /* Make sure that all arrows are pointing leftwards */
   .container::before {
     left: 60px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+    border: medium solid #3E3D3D;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #3E3D3D transparent transparent;
   }
 
 /* Make sure all circles are at the same spot */
   .left::after, .right::after {
-    left: 15px;
+    left: 12px;
   }
+
+  .left {
+  left: 5px;
+}
 
 /* Make all right containers behave like the left ones */
   .right {
-    left: 0%;
+    left: 5px;
   }
+}
+
+@media screen and (max-width: 600px) {
+
+
+/* Full-width containers */
+  .container {
+    width: 300px;
+   }
 }
 </style>

@@ -6,6 +6,7 @@
   padding: 2rem;
   font-weight: normal;
   background-color: #e7e2dc;
+  place-items: center;
 }
 
 a,
