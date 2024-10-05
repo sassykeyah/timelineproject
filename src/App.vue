@@ -2,6 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 </script>
 <!--main page header and content organisation-->
+<style>
+  @import url("https://use.typekit.net/bfl6rmj.css");
+</style>
+<style>
+  @import url("https://use.typekit.net/bfl6rmj.css");
+</style>
+
 <template>
   <header>
     <nav>
@@ -41,12 +48,19 @@ import { RouterLink, RouterView } from 'vue-router'
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+  font-family: "mundial", sans-serif;
+font-weight: 400;
+font-style: normal;
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
   font-size: 25px;
-  font-weight: bold;
+  
+  font-family: "gambado-sans-forte", sans-serif;
+font-weight: 700;
+font-style: normal;
+
 }
 
 /* Change the background color on mouse-over */

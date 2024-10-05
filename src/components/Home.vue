@@ -91,6 +91,7 @@ export default {
 
 
 <template>
+  
   <div class="search">
     <!-- In vue, loop through API data -->
     <div class="timeline" v-for="(result, index) in filteredItems" :key="result[index]">
