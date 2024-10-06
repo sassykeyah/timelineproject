@@ -24,7 +24,7 @@ I was really challenged by this assessment piece and it took me a lot of debuggi
 
 Overall I'm very happy with the result and the fluidity that the media queries provide between devices. It is definitely usable and achieved everything I needed. In the future I would dedicate more time to the CSS with a more planned out timeline of when things needed to be completed. Allowing me to create a design that’s as accessible as it is beautiful. I would also like to go into VUE deeper and explore the reuse of public components.
 
-[LINK TO WEBSITE](http://localhost:5173/timelineproject/)
+[LINK TO WEBSITE](https://sassykeyah.github.io/timelineproject/)
 
 # References
 
